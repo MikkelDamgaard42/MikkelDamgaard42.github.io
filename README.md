@@ -1,16 +1,25 @@
-# React + Vite
+# Mikkel Damgaard Nielsen — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio udviklet som en del af Multimediedesign med specialisering i Interaction Design (IxD) på Erhvervsakademi Aarhus.
 
-Currently, two official plugins are available:
+Portfolioen samler udvalgte projekter med fokus på krydsfeltet mellem design, frontendudvikling og interaktion.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Udvalgte cases
 
-## React Compiler
+### LYNK
+En platform til at opdage og oprette lokale sportsaktiviteter.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Fokus på React, state, routing, Supabase, interaktionsdesign og motion.
 
-## Expanding the ESLint configuration
+### BLUNT
+Webshop-koncept med fokus på dynamisk produktindhold, genbrugelige UI-elementer og produktinteraktioner.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Fokus på HTML, CSS, JavaScript, JSON og Figma.
+
+## Teknologier
+
+React · JavaScript · CSS · Vite · React Router · Supabase · Git / GitHub
+
+## Portfolio
+
+https://mikkeldamgaard42.github.io/
