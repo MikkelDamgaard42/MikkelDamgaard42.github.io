@@ -317,11 +317,11 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Gruppens heuristiske evaluering og Cognitive Walkthrough pegede på tre spørgsmål: Hvad skal jeg gøre? Har jeg valgt den rigtige butik? Lykkedes forbindelsen? Finding Cards samlede observationer, belæg, mulige konsekvenser og prioritering."
+              "text": "Vi brugte heuristisk evaluering og Cognitive Walkthrough til at undersøge tre spørgsmål: Hvad skal jeg gøre? Har jeg valgt den rigtige butik? Lykkedes forbindelsen? I vores Finding Cards samlede vi observationer, belæg, mulige konsekvenser og prioritering."
             },
             {
               "type": "paragraph",
-              "text": "Dashboardet viste flere handlinger uden en klar rækkefølge. “Shop name” gjorde det uklart, hvilken oplysning fra Shopify der skulle bruges, og efter tilslutningen manglede en tydelig bekræftelse. Gruppen prioriterede de tre fund, fordi de vedrører nødvendige trin i opsætningen. Fundene er auditvurderinger, ikke brugertestresultater."
+              "text": "Dashboardet viste flere handlinger uden en klar rækkefølge. “Shop name” gjorde det uklart, hvilken oplysning fra Shopify der skulle bruges, og efter tilslutningen manglede en tydelig bekræftelse. Vi prioriterede de tre fund, fordi de vedrører nødvendige trin i opsætningen. Fundene er auditvurderinger, ikke brugertestresultater."
             }
           ]
         },
@@ -330,7 +330,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Redesignet viser fire trin: Get started, Shopify, Setup og Done. En trinindikator viser, hvor brugeren er, og hvad der er gennemført. Én primær handling peger videre. Det skaber en konceptuel model af forløbet og adresserer Gulf of Execution: afstanden mellem brugerens mål og forståelsen af de nødvendige handlinger."
+              "text": "Vi opbyggede redesignet i fire trin: Get started, Shopify, Setup og Done. En trinindikator viser, hvor brugeren er, og hvad der er gennemført. Én primær handling peger videre. Det skaber en konceptuel model af forløbet og adresserer Gulf of Execution: afstanden mellem brugerens mål og forståelsen af de nødvendige handlinger."
             },
             {
               "type": "images",
@@ -369,7 +369,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Flowet viser både ventetid, succes og fejl. Successkærmen bekræfter forbindelsen og peger videre til opsætningen. Det adresserer Gulf of Evaluation: Brugeren skal kunne aflæse resultatet af sin handling. Efter Done viser designet vejen til at forbinde det første brand."
+              "text": "Vi udformede flowet med tilstande for ventetid, succes og fejl. Successkærmen bekræfter forbindelsen og peger videre til opsætningen. Det adresserer Gulf of Evaluation: Brugeren skal kunne aflæse resultatet af sin handling. Efter Done viser designet vejen til at forbinde det første brand."
             },
             {
               "type": "images",
@@ -387,23 +387,23 @@
           ]
         },
         {
-          "title": "Designcheck og begrænsninger",
+          "title": "Designcheck og refleksion",
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Gruppens Accessibility Design Check omfattede kontrast, feltetiketter, information formidlet med farver og hjælp ved fejl. Præsentationen beskriver ændret kontrast og en fejltilstand med tekst, ikon og mulighed for at prøve igen. Statiske skærme viser ikke, om tastaturbetjening og fokus virker. Designchecket dokumenterer derfor ikke fuld WCAG-overholdelse."
+              "text": "Vi brugte Accessibility Design Check til at gennemgå kontrast, feltetiketter, brug af farver og hjælp ved fejl. Vi justerede kontrasten og arbejdede med en fejltilstand, hvor tekst, ikon og muligheden for at prøve igen hjælper brugeren videre. Tastaturbetjening og fokus skal afprøves i en fungerende løsning."
             },
             {
               "type": "paragraph",
-              "text": "Redesignet forbinder fundene med synlige trin, hjælp ved “Shop name” og tydelig status. “Done” afslutter den indledende opsætning med Shopify. Derefter skal brugeren forbinde sit første brand. Designet bør tydeliggøre forskellen, så “færdig” ikke opfattes som afslutningen på hele onboardingen."
+              "text": "I redesignet omsatte vi fundene til synlige trin, hjælp ved “Shop name” og tydelig feedback. “Done” markerer afslutningen på den indledende Shopify-opsætning, hvorefter brugeren skal forbinde sit første brand. Overgangen mellem de to dele kan gøres tydeligere, så brugeren ved, hvad der er afsluttet, og hvad næste skridt er."
             },
             {
               "type": "paragraph",
-              "text": "Flowet er tænkt til at gøre opsætningen lettere og mindske behovet for hjælp. Der er ikke målt effekt på aktivering eller support."
+              "text": "Målet er at gøre opsætningen lettere og mindske behovet for hjælp. Effekten på gennemført onboarding og supportbehov er endnu ikke målt."
             },
             {
               "type": "paragraph",
-              "text": "Kilder: Gruppens auditboard og præsentation, slides 2–10. UX Audit Summary er en efterfølgende sammenfatning med sidehenvisninger, ikke en ny undersøgelse."
+              "text": "Kilder: Gruppens auditboard og præsentation, slides 2–10. UX Audit Summary samler gruppens fund og designvalg med henvisninger til materialet."
             }
           ]
         }

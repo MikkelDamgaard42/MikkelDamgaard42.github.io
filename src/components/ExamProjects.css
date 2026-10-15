@@ -51,3 +51,8 @@
 .projects-index .index-project--larchive h2 { letter-spacing: var(--project-title-spacing); font-size: clamp(2rem, 8vw, 7.5rem); white-space: nowrap; }
 .exam-projects__project--larchive h3 { letter-spacing: var(--project-title-spacing); white-space: nowrap; font-size: clamp(1.5rem, 2.6vw, 2.6rem); }
 .exam-projects article > .exam-projects__byline { margin-top: -.25rem; margin-bottom: 1rem; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .12em; line-height: 1.5; }
+
+/* Preserve the brand’s mixed-case spelling. */
+.projects-index .index-project--vuuh h2,
+.projects-index .index-project--vuuh .index-project__meta,
+.exam-projects__project--vuuh h3 { text-transform: none; }
