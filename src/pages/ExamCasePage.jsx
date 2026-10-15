@@ -12,7 +12,7 @@ function InlineCopy({ text }) {
 function ExamCasePage({ slug, language, copy }) {
   const study = cases[slug][language]
   const heading = useRef(null)
-  const caseNumber = Object.keys(cases).indexOf(slug) + 1
+  const caseNumber = Object.keys(cases).indexOf(slug) + 3
 
   useEffect(() => {
     const previousTitle = document.title
@@ -22,11 +22,13 @@ function ExamCasePage({ slug, language, copy }) {
   }, [slug, study.title])
 
   return (
-    <main className="case-page exam-case">
+    <main className={`case-page exam-case exam-case--${slug}`}>
       <header className="exam-case__hero">
         <Link className="back-link" to="/projects">← {copy.work.backToProjects}</Link>
         <p className="exam-case__eyebrow">Case / {String(caseNumber).padStart(2, '0')}</p>
-        <h1 ref={heading} tabIndex={-1}>{study.title}</h1>
+        <h1 ref={heading} tabIndex={-1} aria-label={slug === 'larchive' ? study.title : undefined}>
+          {slug === 'larchive' ? <><span className="exam-case__brand-name">L’ARCHIVE</span><span className="exam-case__brand-byline">BY LA ROUGE</span></> : study.title}
+        </h1>
         <p className="exam-case__intro">{study.subtitle}</p>
         <p className="exam-case__tags">{study.tags}</p>
         <nav className="exam-case__links" aria-label={language === 'da' ? 'Projektlinks' : 'Project links'}>
@@ -42,7 +44,7 @@ function ExamCasePage({ slug, language, copy }) {
                 <div className={`exam-case__images exam-case__images--${block.images.length}`} key={blockIndex}>
                   {block.images.map((image) => (
                     <figure key={image.file}>
-                      <a href={examImage(image.file)} target="_blank" rel="noreferrer" aria-label={`${language === 'da' ? 'Åbn større billede' : 'Open larger image'}: ${image.alt}`}>
+                      <a className={slug === 'mellemrum' && image.file === 'mellemrum/tilmelding-lokal-succes.png' ? 'exam-case__registration-preview' : undefined} href={examImage(image.file)} target="_blank" rel="noreferrer" aria-label={`${language === 'da' ? 'Åbn større billede' : 'Open larger image'}: ${image.alt}`}>
                         <img src={examImage(image.file)} alt={image.alt} loading="lazy" decoding="async" />
                       </a>
                     </figure>

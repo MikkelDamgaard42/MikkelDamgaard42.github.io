@@ -539,11 +539,37 @@
           ]
         },
         {
+          "title": "Arkivnummer og fysisk indgang til videresalg",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Arkividéen bliver konkret gennem et arkivnummer, som knytter varen til L’ARCHIVE. Et vedhæftet mærke kombinerer nummeret med en QR-kode, der leder ejeren ind i sælgerflowet, når tøjet skal sælges videre. Mærket fungerer dermed både som en del af identiteten og som en praktisk indgang til næste videresalg."
+            },
+            {
+              "type": "paragraph",
+              "text": "Forløbet er tænkt som fysisk vare → arkivnummer og QR-kode → sælgerflow → nyt videresalg. Mærket og QR-indgangen er koncept og design; QR-integrationen er ikke implementeret."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "Originalt mærkedesign fra pitchen med arkivnummer N° 0047, QR-kode og et separat style-nummer LR1089.",
+                  "file": "larchive/arkivmaerke-qr.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "Arkivnummer og QR-kode på det fysiske mærke forbinder varen med indgangen til næste videresalg."
+            }
+          ]
+        },
+        {
           "title": "Sælger: fra vaskemærke til værdi",
           "blocks": [
             {
               "type": "paragraph",
-              "text": "En sælger kan have købt tøjet hos en forhandler og derfor mangle købshistorik i webshoppen. Style-nummeret på vaskemærket bliver en alternativ indgang. Prototypen viser et produktmatch, valg af stand, to guidede fotos, forventet værdi og afsendelse."
+              "text": "En sælger kan have købt tøjet hos en forhandler og derfor mangle købshistorik i webshoppen. Prototypen viser style-nummeret på vaskemærket som en alternativ indgang, adskilt fra konceptets arkivnummer. Herfra vises et produktmatch, valg af stand, to guidede fotos, forventet værdi og afsendelse."
             },
             {
               "type": "images",
@@ -599,7 +625,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Processen omfattede brainstorm, Lotus Blossom og sammenligning af konceptretninger. Et komplet arkiv med en side til hver model blev fravalgt på grund af begrænset lager. Muligheden for at følge en model blev beholdt. En personlig hilsen fra hver sælger blev også fravalgt for at holde indleveringen enkel; et kort i pakken kunne stadig skabe forbindelse til næste videresalg."
+              "text": "Processen omfattede brainstorm, Lotus Blossom og sammenligning af konceptretninger. Et komplet digitalt katalog med en side til hver model blev fravalgt på grund af begrænset lager. Arkividéen blev bevaret: arkivnummer, fysisk mærke og QR-indgang til næste videresalg er centrale dele af konceptet. Muligheden for at følge en model blev også beholdt. En personlig hilsen fra hver sælger blev fravalgt for at holde indleveringen enkel; et kort i pakken kunne stadig skabe forbindelse til næste videresalg."
             },
             {
               "type": "paragraph",
@@ -660,11 +686,37 @@
           ]
         },
         {
+          "title": "Archive number and a physical entry point to resale",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The archive idea takes physical form through an archive number that connects the item to L’ARCHIVE. An attached tag combines the number with a QR code that takes the owner into the seller flow when the clothing is ready to be resold. The tag therefore serves both as part of the identity and as a practical entry point to the next resale."
+            },
+            {
+              "type": "paragraph",
+              "text": "The intended journey is physical item → archive number and QR code → seller flow → next resale. The tag and QR entry point are concept and design; the QR integration has not been implemented."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "Original tag design from the pitch showing archive number N° 0047, a QR code and a separate style number LR1089.",
+                  "file": "larchive/arkivmaerke-qr.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "The archive number and QR code on the physical tag connect the item to the entry point for its next resale."
+            }
+          ]
+        },
+        {
           "title": "Seller: from care label to value",
           "blocks": [
             {
               "type": "paragraph",
-              "text": "A seller may have purchased through a retailer and therefore have no purchase history in the webshop. The style number on the care label provides an alternative starting point. The prototype shows a product match, condition selection, two guided photos, expected value and shipping."
+              "text": "A seller may have purchased through a retailer and therefore have no purchase history in the webshop. The prototype shows the style number on the care label as an alternative starting point, distinct from the concept’s archive number. It then shows a product match, condition selection, two guided photos, expected value and shipping."
             },
             {
               "type": "images",
@@ -720,7 +772,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "The process included brainstorming, Lotus Blossom and comparison of concept directions. A complete archive with a page for every model was excluded because of limited stock. Following a model was retained. A personal message from each seller was also excluded to keep submission simple; a card in the package could still create a connection to the next resale."
+              "text": "The process included brainstorming, Lotus Blossom and comparison of concept directions. A complete digital catalogue with a page for every model was excluded because of limited stock. The archive idea was retained: the archive number, physical tag and QR entry point to the next resale remain central to the concept. Following a model was also retained. A personal message from each seller was excluded to keep submission simple; a card in the package could still create a connection to the next resale."
             },
             {
               "type": "paragraph",

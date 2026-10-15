@@ -52,7 +52,7 @@ export const translations = {
         {
           name: 'LYNK',
           slug: 'lynk',
-          number: '001',
+          number: '01',
           type: 'React-applikation / Interaktionsdesign',
           catalogueType: 'Interaction Design / Frontend',
           indexType: 'Interaction Design / Frontend / Motion',
@@ -119,7 +119,7 @@ export const translations = {
         {
           name: 'BLUNT',
           slug: 'fashion',
-          number: '002',
+          number: '02',
           type: 'Frontend / E-commerce-koncept',
           catalogueType: 'Frontend / E-commerce',
           indexType: 'E-commerce / Frontend / UI',
@@ -278,7 +278,7 @@ export const translations = {
         {
           name: 'LYNK',
           slug: 'lynk',
-          number: '001',
+          number: '01',
           type: 'React application / Interaction Design',
           catalogueType: 'Interaction Design / Frontend',
           indexType: 'Interaction Design / Frontend / Motion',
@@ -345,7 +345,7 @@ export const translations = {
         {
           name: 'BLUNT',
           slug: 'fashion',
-          number: '002',
+          number: '02',
           type: 'Frontend / E-commerce concept',
           catalogueType: 'Frontend / E-commerce',
           indexType: 'E-commerce / Frontend / UI',

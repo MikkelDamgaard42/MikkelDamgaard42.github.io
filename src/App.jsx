@@ -1,3 +1,4 @@
+import './projectTypography.css'
 import { useEffect, useState } from 'react'
 import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import ProjectCard from './components/ProjectCard.jsx'
@@ -188,9 +189,9 @@ function ProjectsPage({ copy }) {
         </header>
 
         <div className="projects-index__list">
-          {copy.work.projects.map((project, index) => {
+          {copy.work.projects.map((project) => {
             const path = `/projects/${project.slug === 'fashion' ? 'blunt' : project.slug}`
-            const number = String(index + 1).padStart(2, '0')
+            const number = project.number
 
             return (
               <article className={`index-project index-project--${project.slug}${project.cover ? ` index-project--exam index-project--${project.indexLayout}` : ''}`} key={project.name}>

@@ -1,0 +1,10 @@
+/* Shared tracking for project names and case section headings. */
+:root {
+  --project-title-spacing: -.035em;
+  --case-heading-spacing: -.035em;
+}
+.index-project--larchive,
+.exam-projects__project--larchive,
+.exam-case--larchive {
+  --project-title-spacing: .01em;
+}

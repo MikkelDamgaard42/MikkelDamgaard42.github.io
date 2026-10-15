@@ -3,7 +3,7 @@
 .exam-projects__visual { display: flex; aspect-ratio: 4 / 3; align-items: center; background: #efeee9; padding: .75rem; }
 .exam-projects__visual img { width: 100%; height: 100%; object-fit: contain; }
 .exam-projects__meta { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); margin-top: 1.5rem; }
-.exam-projects h3 { font-size: clamp(1.5rem, 2.6vw, 2.6rem); line-height: 1.1; margin-block: .75rem; letter-spacing: -.04em; }
+.exam-projects h3 { font-size: clamp(1.5rem, 2.6vw, 2.6rem); line-height: 1.1; margin-block: .75rem; letter-spacing: var(--project-title-spacing); }
 .exam-projects article > p:not(.exam-projects__meta) { line-height: 1.6; margin-bottom: 1rem; }
 .exam-projects a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
 .index-project--mellemrum .index-project__visual img, .index-project--vuuh .index-project__visual img, .index-project--larchive .index-project__visual img { object-fit: contain; width: 100%; height: auto; max-height: 650px; }
@@ -33,3 +33,21 @@
   .projects-index .index-project--wide .index-project__info { grid-template-columns: minmax(0, 1fr); }
   .projects-index .index-project--wide .index-project__cta { justify-self: start; }
 }
+
+/* Compact previews on the project index; case evidence keeps its full image. */
+.projects-index .index-project__layout { padding-block: clamp(2.5rem, 4.5vw, 4rem); gap: clamp(2rem, 4vw, 4rem); }
+.projects-index .index-project__visual { min-height: 0; padding: clamp(.75rem, 1.5vw, 1.5rem); }
+.projects-index .index-project__visual img { height: auto; max-height: none; }
+.projects-index .index-project--vuuh h2 { font-size: clamp(4rem, 7.5vw, 7.5rem); line-height: .8; overflow-wrap: normal; }
+.projects-index .index-project--wide .index-project__layout { gap: clamp(1.5rem, 3vw, 2.5rem); }
+.projects-index .index-project--mellemrum .index-project__visual { position: relative; display: block; aspect-ratio: 1280 / 940; padding: 0; }
+.projects-index .index-project--mellemrum .index-project__visual img { position: absolute; inset: 0 0 auto; width: 100%; height: auto; max-height: none; }
+.projects-index .index-project--larchive .index-project__visual img { object-fit: contain; }
+@media (max-width: 600px) {
+  .projects-index .index-project--vuuh h2 { font-size: clamp(3.5rem, 20vw, 5.5rem); }
+}
+
+/* Give the archive name room while keeping its endorsement separate. */
+.projects-index .index-project--larchive h2 { letter-spacing: var(--project-title-spacing); font-size: clamp(2rem, 8vw, 7.5rem); white-space: nowrap; }
+.exam-projects__project--larchive h3 { letter-spacing: var(--project-title-spacing); white-space: nowrap; font-size: clamp(1.5rem, 2.6vw, 2.6rem); }
+.exam-projects article > .exam-projects__byline { margin-top: -.25rem; margin-bottom: 1rem; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .12em; line-height: 1.5; }
