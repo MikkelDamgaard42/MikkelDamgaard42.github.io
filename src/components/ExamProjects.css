@@ -1,0 +1,11 @@
+.exam-projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; padding-top: 4rem; }
+.exam-projects article { min-width: 0; border-top: 1px solid var(--line); padding-top: 1rem; }
+.exam-projects__visual { display: flex; aspect-ratio: 4 / 3; align-items: center; background: #efeee9; padding: .75rem; }
+.exam-projects__visual img { width: 100%; height: 100%; object-fit: contain; }
+.exam-projects__meta { font-family: var(--font-mono); font-size: .7rem; color: var(--muted); margin-top: 1.5rem; }
+.exam-projects h3 { font-size: clamp(1.5rem, 2.6vw, 2.6rem); line-height: 1.1; margin-block: .75rem; letter-spacing: -.04em; }
+.exam-projects article > p:not(.exam-projects__meta) { line-height: 1.6; margin-bottom: 1rem; }
+.exam-projects a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.index-project--mellemrum .index-project__visual img, .index-project--vuuh .index-project__visual img, .index-project--larchive .index-project__visual img { object-fit: contain; width: 100%; height: auto; max-height: 650px; }
+@media(max-width: 800px) { .exam-projects { grid-template-columns: 1fr; } }
+.index-project:is(.index-project--mellemrum, .index-project--vuuh, .index-project--larchive) h2 { font-size: clamp(2.5rem, 4vw, 3.2rem); line-height: 1.05; overflow-wrap: anywhere; }

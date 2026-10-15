@@ -3,11 +3,11 @@ import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import ProjectCard from './components/ProjectCard.jsx'
 import SelectedProjects from './components/SelectedProjects.jsx'
 import ProjectPage from './pages/ProjectPage.jsx'
-import MellemrumCasePage from './pages/MellemrumCasePage.jsx'
+import ExamCasePage from './pages/ExamCasePage.jsx'
+import ExamProjects from './components/ExamProjects.jsx'
 import { translations } from './translations.js'
 import lynkMain from './assets/lynk-main.png'
 import bluntMain from './assets/blunt-main.png'
-import mellomrumMain from './assets/case1/deployment-test-offentlig.png'
 import mikkelAbout from './assets/mikkel-about.png'
 
 const getInitialLanguage = () => {
@@ -75,7 +75,7 @@ function Work({ copy, title = copy.work.title, interactive = false }) {
   return (
     <section className="section" id="work" aria-labelledby="work-title">
       <div className="section-heading reveal"><p className="section-number">{copy.sectionNumbers[0]}</p><h2 id="work-title">{title}</h2></div>
-      {interactive ? <SelectedProjects copy={copy} /> : <div className="projects">{copy.work.projects.map((project, index) => <ProjectCard key={project.name} project={project} labels={copy.work} accessibility={copy.accessibility} featured={index === 0} />)}</div>}
+      {interactive ? <><SelectedProjects copy={{ ...copy, work: { ...copy.work, projects: copy.work.projects.filter((project) => !project.cover) } }} /><ExamProjects copy={copy} /></> : <div className="projects">{copy.work.projects.map((project, index) => <ProjectCard key={project.name} project={project} labels={copy.work} accessibility={copy.accessibility} featured={index === 0} />)}</div>}
     </section>
   )
 }
@@ -174,7 +174,7 @@ function HomePage({ copy }) {
 }
 
 function ProjectsPage({ copy }) {
-  const projectAssets = { lynk: lynkMain, fashion: bluntMain, mellomrum: mellomrumMain }
+  const projectAssets = { lynk: lynkMain, fashion: bluntMain }
 
   return (
     <main className="route-page projects-index-page">
@@ -203,7 +203,7 @@ function ProjectsPage({ copy }) {
                     <Link className="index-project__cta" to={path}>{copy.work.viewCase} <i aria-hidden="true">→</i></Link>
                   </div>
                   <Link className="index-project__visual" to={path} aria-label={`${copy.work.viewCase}: ${project.name}`}>
-                    <img src={projectAssets[project.slug]} alt={`${project.name} interface`} />
+                    <img src={project.cover ?? projectAssets[project.slug]} alt={project.coverAlt ?? `${project.name} interface`} loading="lazy" />
                   </Link>
                 </div>
               </article>
@@ -291,7 +291,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage copy={copy} />} />
         <Route path="/projects" element={<ProjectsPage copy={copy} />} />
-        <Route path="/projects/mellemrum" element={<MellemrumCasePage copy={copy} project={copy.work.projects.find((item) => item.slug === 'mellemrum')} />} />
+        {['mellemrum', 'vuuh', 'larchive'].map((slug) => <Route key={slug} path={`/projects/${slug}`} element={<ExamCasePage key={slug} slug={slug} language={language} copy={copy} />} />)}
         <Route path="/projects/:slug" element={<ProjectPage copy={copy} />} />
         <Route path="/about" element={<AboutPage copy={copy} />} />
         <Route path="/contact" element={<ContactPage copy={copy} />} />

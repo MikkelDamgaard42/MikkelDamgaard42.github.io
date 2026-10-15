@@ -1,0 +1,734 @@
+{
+  "mellemrum": {
+    "da": {
+      "title": "Mellemrum",
+      "subtitle": "Fra React-prototype til fungerende tilmelding",
+      "tags": "React · JavaScript · Supabase REST API · GitHub Pages",
+      "links": [
+        {
+          "label": "Se løsningen",
+          "href": "https://mikkeldamgaard42.github.io/case1/"
+        },
+        {
+          "label": "Se repository",
+          "href": "https://github.com/MikkelDamgaard42/case1"
+        },
+        {
+          "label": "Teknisk audit og testdokumentation",
+          "href": "https://github.com/MikkelDamgaard42/case1/tree/main/docs/replay"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Udfordring og prioritering",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Mellemrum hjælper brugere med at finde lokale kulturoplevelser i Aarhus. Jeg overtog en eksisterende React-prototype og arbejdede med kode, data og funktionalitet. Platformens visuelle grunddesign var udleveret."
+            },
+            {
+              "type": "paragraph",
+              "text": "Prototypens formular loggede input uden at gemme tilmeldingen. Venueoplysninger blev gentaget på events, og tilmeldinger havde kopier af eventdata frem for en eventrelation. Samtidig kunne en fejl under datahentning efterlade eventsiden uden forklaring."
+            },
+            {
+              "type": "paragraph",
+              "text": "Jeg prioriterede derfor datamodellen og tilmeldingsflowet højest: Brugeren skulle kunne tilmelde sig, og arrangøren skulle kunne se den korrekte tilmelding. Robusthed og tilgængelighed understøttede dette flow. Visuelt redesign og nye funktioner blev nedprioriteret."
+            }
+          ]
+        },
+        {
+          "title": "Én kilde til oplysningerne",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Gentagne oplysninger skabte risiko for modstridende kopier og gjorde rettelser besværlige. Jeg fordelte data på tre tabeller: `venues` indeholder stedet, `events` refererer til stedet via `venueId`, og `registrations` refererer til eventet via et obligatorisk `eventId`. Fremmednøgler sikrer, at relationerne peger på eksisterende rækker."
+            },
+            {
+              "type": "paragraph",
+              "text": "Migrationen tilføjede relationerne før fjernelsen af kopifelterne. SQL-kontroller viste ingen forskelle i de sammenlignede oplysninger. En gentaget, isoleret databasetest kontrollerede desuden migration, frisk opsætning og constraints. Det giver et mere konsistent grundlag og færre steder at vedligeholde oplysninger."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "Datamodel før og efter: gentagne sted- og eventfelter erstattes af relationer mellem venues, events og registrations.",
+                  "file": "mellemrum/datamodel-foer-efter.svg"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "Efterfølgende illustration af schemaændringen. SQL-kontroller og migrationsfiler dokumenterer selve ændringen."
+            }
+          ]
+        },
+        {
+          "title": "Fra formular til arrangøroverblik",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Jeg erstattede konsollogning med et POST-kald til Supabase med navn, e-mail, status og det valgte `eventId`. Formularen validerer input, viser feedback og deaktiverer indsendelse, mens requesten kører. Oversigten henter titel og dato gennem eventrelationen i stedet for at gemme nye kopier."
+            },
+            {
+              "type": "paragraph",
+              "text": "Lokale browsertests viste gemt tilmelding, korrekt eventtilknytning efter genindlæsning og deaktiveret knap under et forsinket svar. Efter deployment gennemførte jeg også en tilmelding mod live Supabase. Den fiktive testtilmelding blev hentet igen i den publicerede oversigt efter genindlæsning med korrekt event, dato og status."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "Den lokale eventside viser en succesbesked efter gennemført tilmelding.",
+                  "file": "mellemrum/tilmelding-lokal-succes.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "Lokal test: formularen viser succes efter indsendelse. Skærmbilledet viser det udleverede design med det forbedrede flow."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "Den publicerede oversigt viser Replay deployment test til Søndagsjazz ved åen den 15. november 2026 med status Ny.",
+                  "file": "mellemrum/tilmelding-publiceret-oversigt.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "Separat onlinetest: den fiktive tilmelding vises efter genindlæsning. Det er ikke samme test som på det lokale billede."
+            }
+          ]
+        },
+        {
+          "title": "Robust React og vedligeholdelse",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Jeg samlede API-håndtering med kontrol af `response.ok` og tilføjede loading-, error-, empty- og not-found-tilstande. Formularlabels, en semantisk tabel og synlige fokusmarkeringer forbedrer sammenhængen for tastaturbrug og hjælpemidler. En `key` baseret på `eventId` nulstiller eventsiden ved eventskift. Det blev afprøvet i samme React-session med forsinkede svar og tidligere formularfeedback."
+            }
+          ]
+        },
+        {
+          "title": "Proces, verifikation og refleksion",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Den første implementering havde utilstrækkelig løbende dokumentation. Derfor gennemførte jeg en ny runde fra startkoden med baseline og prioriteret audit før kodeændringer. Jeg genbrugte kendte løsninger åbent og arbejdede i fem feature branches, som blev testet og merged løbende. Den oprindelige historik blev bevaret."
+            },
+            {
+              "type": "paragraph",
+              "text": "Lint, production build og deployment bestod. Direkte eventroute og genindlæsning blev kontrolleret; den publicerede løsning blev afprøvet med faktisk Supabase. Kontrollerede fejltests brugte en isoleret lokal database og REST-adapter."
+            },
+            {
+              "type": "paragraph",
+              "text": "Den vigtigste værdi er nu et fungerende tilmeldingsflow og et sammenhængende arrangøroverblik. Det kan mindske frafald og dobbeltvedligeholdelse, men konvertering og tidsbesparelse er ikke målt. Login, betaling og kapacitetsstyring blev fravalgt. Fuld skærmlæserkontrol og performancemålinger er fortsat mulige næste skridt."
+            }
+          ]
+        }
+      ]
+    },
+    "en": {
+      "title": "Mellemrum",
+      "subtitle": "From React prototype to working registration",
+      "tags": "React · JavaScript · Supabase REST API · GitHub Pages",
+      "links": [
+        {
+          "label": "View the application",
+          "href": "https://mikkeldamgaard42.github.io/case1/"
+        },
+        {
+          "label": "View repository",
+          "href": "https://github.com/MikkelDamgaard42/case1"
+        },
+        {
+          "label": "Technical audit and test documentation",
+          "href": "https://github.com/MikkelDamgaard42/case1/tree/main/docs/replay"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Challenge and priorities",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Mellemrum helps people discover local cultural events in Aarhus. I took over an existing React prototype and worked on its code, data and functionality. The platform’s visual design was supplied."
+            },
+            {
+              "type": "paragraph",
+              "text": "The prototype’s form logged input without saving registrations. Venue details were repeated on events, and registrations stored copies of event details rather than an event relationship. A failed request could also leave the event page without an explanation."
+            },
+            {
+              "type": "paragraph",
+              "text": "I therefore prioritised the data model and registration flow: visitors needed to register, and organisers needed to see the correct registration. Robustness and accessibility supported this flow. Visual redesign and new features were lower priorities."
+            }
+          ]
+        },
+        {
+          "title": "A single source for information",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Repeated information risked conflicting copies and made updates difficult. I separated the data into three tables: `venues` stores the location, `events` references it through `venueId`, and `registrations` references the event through a mandatory `eventId`. Foreign keys ensure that relationships point to existing rows."
+            },
+            {
+              "type": "paragraph",
+              "text": "The migration added relationships before removing duplicate fields. SQL checks found no differences in the compared information. A repeated, isolated database test also checked migration, fresh setup and constraints. This provides a more consistent foundation with fewer places to maintain information."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "Before and after data model: duplicate location and event fields replaced with relationships between venues, events and registrations.",
+                  "file": "mellemrum/datamodel-foer-efter.svg"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "An illustration created after the schema change. SQL checks and migration files document the actual change."
+            }
+          ]
+        },
+        {
+          "title": "From form to organiser overview",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "I replaced console logging with a POST request to Supabase containing name, email, status and the selected `eventId`. The form validates input, displays feedback and disables submission while the request is pending. The overview retrieves title and date through the event relationship instead of saving new copies."
+            },
+            {
+              "type": "paragraph",
+              "text": "Local browser tests showed a saved registration, correct event association after reloading, and disabled submission during a delayed response. After deployment, I also registered against live Supabase. The fictional test registration was retrieved again in the published overview after reloading, with the correct event, date and status."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "The local event page displays a success message after registration.",
+                  "file": "mellemrum/tilmelding-lokal-succes.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "Local test: the form displays success after submission. The screenshot shows the supplied design with the improved flow."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "The published overview shows Replay deployment test for Søndagsjazz ved åen on 15 November 2026 with status Ny.",
+                  "file": "mellemrum/tilmelding-publiceret-oversigt.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "A separate online test: the fictional registration appears after reloading. This is not the same test as the local screenshot."
+            }
+          ]
+        },
+        {
+          "title": "Robust React and maintenance",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "I centralised API handling with `response.ok` checks and added loading, error, empty and not-found states. Form labels, a semantic table and visible focus indicators improve structure for keyboard use and assistive technology. A `key` based on `eventId` resets the event page when switching events. This was tested within the same React session with delayed responses and previous form feedback."
+            }
+          ]
+        },
+        {
+          "title": "Process, verification and reflection",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The first implementation lacked sufficient ongoing documentation. I therefore completed a new round from the starter code, establishing a baseline and prioritised audit before code changes. I openly reused known solutions and worked in five feature branches, tested and merged in sequence. The original history was preserved."
+            },
+            {
+              "type": "paragraph",
+              "text": "Lint, production build and deployment passed. Direct event routes and reloading were checked; the published application was tested with actual Supabase. Controlled failure tests used an isolated local database and REST adapter."
+            },
+            {
+              "type": "paragraph",
+              "text": "The main value is a working registration flow and a coherent organiser overview. This may reduce drop-off and duplicate maintenance, but conversion and time savings have not been measured. Login, payment and capacity management were excluded. Full screen reader checks and performance measurements remain possible next steps."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "vuuh": {
+    "da": {
+      "title": "Vuuh",
+      "subtitle": "Tydeligere onboarding fra installation til aktivering",
+      "tags": "UX-audit · Interaktionsdesign · Accessibility Design Check · Figma",
+      "links": [
+        {
+          "label": "Se Figma-designfilen",
+          "href": "https://www.figma.com/design/PEUH5ns1BrzuNaI75Zu5F5/Vuuh---Case-2---3.sem?node-id=0-1"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Udfordringen",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "En ny bruger hos Vuuh skal forstå produktet og forbinde sin Shopify-butik. Gruppeprojektet undersøgte, hvor onboardingen skabte usikkerhed, og omsatte fundene til et guidet forløb i Figma. Fokus var sammenhængen mellem diagnose, redesign og kvalificering gennem accessibility."
+            }
+          ]
+        },
+        {
+          "title": "Tre fund gav retning",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Gruppens Heuristic Evaluation og Cognitive Walkthrough pegede på tre centrale spørgsmål: Hvad skal jeg gøre? Har jeg valgt den rigtige butik? Lykkedes forbindelsen? Fundene blev samlet i Finding Cards med evidens, konsekvenser og prioritering."
+            },
+            {
+              "type": "paragraph",
+              "text": "Uklar rækkefølge kunne få førstegangsbrugeren til at gætte næste handling. Feltet “Shop name” krævede en oversættelse mellem Shopifys oplysninger og Vuuhs begreb. Utilstrækkelig feedback gjorde det desuden svært at afgøre, om forbindelsen var oprettet. De tre problemer blev prioriteret, fordi de ligger direkte i vejen for at komme i gang."
+            }
+          ]
+        },
+        {
+          "title": "Progression og hjælp i situationen",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Redesignet viser fire trin: Get started, Shopify, Setup og Done. En stepper markerer aktivt og gennemført trin, mens én primær handling peger videre. Det støtter en conceptual model af forløbet og mindsker den Gulf of Execution, der opstår, når brugeren ikke kan se, hvordan målet nås."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "Vuuh-dashboard med fire onboardingtrin og Connect to Shopify som tydelig primær handling.",
+                  "file": "vuuh/onboarding-progression.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "Synlig rækkefølge og en fremhævet start gør næste handling lettere at finde."
+            },
+            {
+              "type": "paragraph",
+              "text": "Hjælpen til “Shop name” forklarer, hvilken del af Shopify-adressen der skal bruges, og viser vejen til Settings → Domains. Et konkret eksempel gør instruktionen lettere at genkende. Hjælpen kan åbnes efter behov, så en erfaren bruger ikke skal gennemgå alle forklaringer."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "Shop name-guide med tre trin, Shopify Domains og et eksempel på butikkens myshopify.com-adresse.",
+                  "file": "vuuh/shop-name-hjaelp.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "Hjælp knyttet til et konkret felt frem for en løs introduktion til hele systemet."
+            }
+          ]
+        },
+        {
+          "title": "Feedback og næste skridt",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Flowet omfatter connecting-, success- og fejltilstande. Success-skærmen bekræfter forbindelsen og leder videre til opsætningen. Det adresserer Gulf of Evaluation: Brugeren skal kunne forstå resultatet af sin handling, før hun fortsætter. Efter Done peger designet videre mod at forbinde det første brand."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "Vuuh bekræfter Shopify-forbindelsen og viser Continue to setup som næste handling.",
+                  "file": "vuuh/forbindelse-succes.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "Resultat og næste skridt vises sammen. Det er et prototypedesign, ikke en dokumenteret live-integration."
+            }
+          ]
+        },
+        {
+          "title": "Kvalificering og refleksion",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Accessibility Design Check udfordrede blandt andet kontrast, labels, information gennem farve og hjælp efter fejl. Gruppens præsentation beskriver kontrastændringer og en fejltilstand med tekst, ikon og mulighed for at prøve igen. Tastatur og fokus kan ikke vurderes ud fra statiske skærme; designchecket er derfor ikke dokumentation for fuld WCAG-overholdelse."
+            },
+            {
+              "type": "paragraph",
+              "text": "Min faglige vurdering er, at den stærkeste del er koblingen fra et konkret fund til en konkret ændring: Uklar retning bliver til progression, uklart Shop name bliver til hjælp i kontekst, og svag feedback bliver til tydelig status. Samtidig skal Done og det efterfølgende brandtrin formidles konsekvent, så “færdig” ikke skaber ny usikkerhed."
+            },
+            {
+              "type": "paragraph",
+              "text": "For Vuuh kan løsningen gøre det lettere at gennemføre opsætningen og mindske behovet for hjælp. Det er en forventet værdi, ikke en målt effekt på aktivering eller support."
+            }
+          ]
+        }
+      ]
+    },
+    "en": {
+      "title": "Vuuh",
+      "subtitle": "Clearer onboarding from installation to activation",
+      "tags": "UX audit · Interaction design · Accessibility Design Check · Figma",
+      "links": [
+        {
+          "label": "View the Figma design file",
+          "href": "https://www.figma.com/design/PEUH5ns1BrzuNaI75Zu5F5/Vuuh---Case-2---3.sem?node-id=0-1"
+        }
+      ],
+      "sections": [
+        {
+          "title": "The challenge",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A new Vuuh user needs to understand the product and connect a Shopify store. The group project investigated uncertainty in onboarding and translated its findings into a guided Figma flow. The focus was the connection between diagnosis, redesign and refinement through accessibility."
+            }
+          ]
+        },
+        {
+          "title": "Three findings established direction",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The group’s Heuristic Evaluation and Cognitive Walkthrough identified three central questions: What should I do? Have I selected the right store? Did the connection work? Findings were collected in Finding Cards with evidence, consequences and priorities."
+            },
+            {
+              "type": "paragraph",
+              "text": "An unclear sequence could leave first-time users guessing their next action. “Shop name” required translating Shopify information into Vuuh’s terminology. Insufficient feedback also made it difficult to tell whether the connection had been established. These issues were prioritised because they directly obstruct getting started."
+            }
+          ]
+        },
+        {
+          "title": "Progression and help in context",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The redesign shows four stages: Get started, Shopify, Setup and Done. A stepper marks active and completed stages, while one primary action points forward. This supports a conceptual model of the flow and reduces the Gulf of Execution that arises when users cannot see how to reach their goal."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "Vuuh dashboard with four onboarding stages and Connect to Shopify as the clear primary action.",
+                  "file": "vuuh/onboarding-progression.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "A visible sequence and prominent starting point make the next action easier to find."
+            },
+            {
+              "type": "paragraph",
+              "text": "The “Shop name” guide explains which part of the Shopify address to use and how to find Settings → Domains. A concrete example makes the instruction easier to recognise. Help can be opened as needed, so experienced users do not have to read every explanation."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "Shop name guide with three steps, Shopify Domains and an example myshopify.com address.",
+                  "file": "vuuh/shop-name-hjaelp.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "Help connected to a specific field rather than a detached introduction to the whole system."
+            }
+          ]
+        },
+        {
+          "title": "Feedback and next steps",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The flow includes connecting, success and error states. The success screen confirms the connection and leads into setup. This addresses the Gulf of Evaluation: users need to understand the result of their action before continuing. After Done, the design points towards connecting the first brand."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "Vuuh confirms the Shopify connection and shows Continue to setup as the next action.",
+                  "file": "vuuh/forbindelse-succes.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "The result and next step appear together. This is a prototype design, not a verified live integration."
+            }
+          ]
+        },
+        {
+          "title": "Refinement and reflection",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The Accessibility Design Check challenged contrast, labels, information conveyed through colour and help after errors. The group’s presentation describes contrast changes and an error state with text, an icon and a retry option. Keyboard interaction and focus cannot be evaluated from static screens; the design check therefore does not demonstrate full WCAG compliance."
+            },
+            {
+              "type": "paragraph",
+              "text": "My assessment is that the strongest aspect is the link between a specific finding and a specific change: unclear direction becomes progression, unclear Shop name becomes help in context, and weak feedback becomes explicit status. Done and the subsequent brand step should also be communicated consistently so that “finished” does not introduce new uncertainty."
+            },
+            {
+              "type": "paragraph",
+              "text": "For Vuuh, the solution could make setup easier to complete and reduce the need for help. This is expected value, not a measured impact on activation or support."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "larchive": {
+    "da": {
+      "title": "L’Archive by LA ROUGE",
+      "subtitle": "Et selvstændigt univers for tøj med mere at give",
+      "tags": "Brandkoncept · Visuel identitet · Brugerrejser · Figma",
+      "links": [
+        {
+          "label": "Se Figma-designfilen",
+          "href": "https://www.figma.com/design/nohDDmGCB8X7U13bOXiE5u/La-Rouge---Design-Fil?node-id=36-877"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Udfordring og retning",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "LA ROUGEs recommerce-initiativ skulle have en tydelig identitet og digital oplevelse uden at miste forbindelsen til moderbrandet. Gruppeprojektet udviklede L’Archive: et secondhand-univers, der gør tøjets fortsatte værdi synlig og giver både sælger og køber en overskuelig vej gennem konceptet."
+            },
+            {
+              "type": "paragraph",
+              "text": "Målgrupperne er eksisterende kunder med tøj, de ikke længere bruger, og prisbevidste kvalitetskøbere, som kan møde brandet gennem secondhand. Desk research, gennemgang af den eksisterende løsning og en beskrevet indsamling af 23 Vinted-annoncer gav grundlag for designvalgene. Materialet pegede blandt andet på manglende modelnavne og udfordringer med kombinerede størrelser."
+            }
+          ]
+        },
+        {
+          "title": "Selvstændigt navn, genkendelig afsender",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Et arkiv er noget, man bevarer, fordi det har værdi. L’Archive overfører LA ROUGEs idé om selvværd til tøjet: Det har stadig værdi efter første ejer. “By LA ROUGE” fungerer som endorsement, mens eget navn, monogram og et særskilt udtryk giver konceptet plads til at stå selvstændigt."
+            },
+            {
+              "type": "paragraph",
+              "text": "Identiteten kombinerer vinrød og varme neutrale farver med Instrument Serif og Hanken Grotesk. Franske formuleringer og varm, feminin tone skaber forbindelsen til moderbrandet. Funktionelle tekster skal samtidig være konkrete. Standen “Joliment portée” suppleres derfor med dansk forklaring frem for at kræve, at brugeren forstår fransk."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "L’Archives designsystem med logo, vinrød og neutral palette, typografi, ikoner og UI-komponenter.",
+                  "file": "larchive/visuel-identitet.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "Identitet og UI bygger på fælles farver og typografi. Oversigten viser også konceptets slogan “Worn Beautifully”."
+            }
+          ]
+        },
+        {
+          "title": "Sælger: fra vaskemærke til værdi",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "En sælger kan have købt tøjet hos en forhandler og derfor mangle købshistorik i webshoppen. Style-nummeret på vaskemærket bliver en alternativ indgang. Prototypen viser et produktmatch, valg af stand, to guidede fotos, forventet værdi og afsendelse."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "Sælger indtaster style LR1089 og får vist Vilma Shirt som produktmatch.",
+                  "file": "larchive/saelger-styleopslag.png"
+                },
+                {
+                  "alt": "Sælger ser en eksempelværdi på 180 kr. samt muligheder for gavekort og udbetaling.",
+                  "file": "larchive/saelger-vaerdi.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "Produktmatch mindsker behovet for selv at beskrive varen. Værdi vises før afsendelse; udbetalingsvilkår er fortsat et konceptspørgsmål."
+            }
+          ]
+        },
+        {
+          "title": "Køber: overblik og tryghed",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Køberrejsen går fra en filtreret oversigt til produkt, kurv og checkout. Produktet vises med pris, stand og LA ROUGEs egne størrelser. “Følg modellen” giver mulighed for besked, når en ønsket størrelse kommer ind, og adresserer det begrænsede secondhandlager."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "Secondhandoversigt med produkter, priser og filtre for størrelse og stand.",
+                  "file": "larchive/koeber-oversigt.png"
+                },
+                {
+                  "alt": "Louise Denim Jacket med stand, størrelse, pris og mulighed for notifikation.",
+                  "file": "larchive/koeber-produkt.png"
+                },
+                {
+                  "alt": "Kurv med jakke til 770 kr., fragt på 35 kr. og samlet pris på 805 kr.",
+                  "file": "larchive/koeber-kurv.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "Oversigt → produkt → kurv. Eksempelprisen er sammenhængende gennem forløbet; designet er ikke en implementeret webshop."
+            }
+          ]
+        },
+        {
+          "title": "Valg, fravalg og værdi",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Processen omfattede brainstorm, Lotus Blossom og sammenligning af konceptretninger. Et komplet arkiv med en side til hver model blev fravalgt på grund af begrænset lager. Muligheden for at følge en model blev beholdt. En personlig hilsen fra hver sælger blev også fravalgt for at holde indleveringen enkel; et kort i pakken kunne stadig skabe forbindelse til næste videresalg."
+            },
+            {
+              "type": "paragraph",
+              "text": "Den centrale balance er genkendelig kvalitet med en mere tilgængelig indgang til brandet. Gavekort kan understøtte genkøb, mens secondhand kan introducere nye kunder til LA ROUGE. Det er konceptets forretningspotentiale, ikke dokumenteret omsætnings- eller miljøeffekt. Prisfastsættelse, kontrol af varer og afregningsvilkår skal afklares ved en realisering."
+            }
+          ]
+        }
+      ]
+    },
+    "en": {
+      "title": "L’Archive by LA ROUGE",
+      "subtitle": "A distinct home for clothing with more to give",
+      "tags": "Brand concept · Visual identity · User journeys · Figma",
+      "links": [
+        {
+          "label": "View the Figma design file",
+          "href": "https://www.figma.com/design/nohDDmGCB8X7U13bOXiE5u/La-Rouge---Design-Fil?node-id=36-877"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Challenge and direction",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "LA ROUGE’s recommerce initiative needed a clear identity and digital experience without losing its connection to the parent brand. The group project developed L’Archive: a secondhand concept that highlights clothing’s continuing value and gives sellers and buyers a clear path through the experience."
+            },
+            {
+              "type": "paragraph",
+              "text": "The audiences are existing customers with clothing they no longer wear and price-conscious quality buyers who may discover the brand through secondhand. Desk research, a review of the existing solution and a documented collection of 23 Vinted listings informed the design choices. The material highlighted missing model names and difficulties with combined sizes, among other issues."
+            }
+          ]
+        },
+        {
+          "title": "A distinct name with a recognisable sender",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "An archive is something preserved because it has value. L’Archive transfers LA ROUGE’s idea of self-worth to clothing: it still has value after its first owner. “By LA ROUGE” provides endorsement, while a separate name, monogram and visual expression give the concept its own identity."
+            },
+            {
+              "type": "paragraph",
+              "text": "The identity combines wine red and warm neutrals with Instrument Serif and Hanken Grotesk. French phrases and a warm, feminine tone connect it to the parent brand. Functional copy must also be specific. The condition “Joliment portée” therefore includes a Danish explanation rather than requiring users to understand French."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "L’Archive design system with logo, wine red and neutral palette, typography, icons and UI components.",
+                  "file": "larchive/visuel-identitet.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "Identity and UI share colours and typography. The overview also shows the concept’s slogan “Worn Beautifully”."
+            }
+          ]
+        },
+        {
+          "title": "Seller: from care label to value",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "A seller may have purchased through a retailer and therefore have no purchase history in the webshop. The style number on the care label provides an alternative starting point. The prototype shows a product match, condition selection, two guided photos, expected value and shipping."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "A seller enters style LR1089 and sees Vilma Shirt as the product match.",
+                  "file": "larchive/saelger-styleopslag.png"
+                },
+                {
+                  "alt": "A seller sees an example value of DKK 180 and options for a gift card or payout.",
+                  "file": "larchive/saelger-vaerdi.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "Product matching reduces the need to describe the item manually. Value is shown before shipping; payout terms remain a concept question."
+            }
+          ]
+        },
+        {
+          "title": "Buyer: overview and confidence",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The buyer journey moves from a filtered overview to product, cart and checkout. Products show price, condition and LA ROUGE’s own sizes. “Follow the model” offers notification when a desired size becomes available, addressing limited secondhand stock."
+            },
+            {
+              "type": "images",
+              "images": [
+                {
+                  "alt": "Secondhand overview with products, prices and size and condition filters.",
+                  "file": "larchive/koeber-oversigt.png"
+                },
+                {
+                  "alt": "Louise Denim Jacket with condition, size, price and a notification option.",
+                  "file": "larchive/koeber-produkt.png"
+                },
+                {
+                  "alt": "Cart with a jacket at DKK 770, DKK 35 shipping and DKK 805 total.",
+                  "file": "larchive/koeber-kurv.png"
+                }
+              ]
+            },
+            {
+              "type": "caption",
+              "text": "Overview → product → cart. The example price is consistent throughout the flow; the design is not an implemented webshop."
+            }
+          ]
+        },
+        {
+          "title": "Choices, exclusions and value",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The process included brainstorming, Lotus Blossom and comparison of concept directions. A complete archive with a page for every model was excluded because of limited stock. Following a model was retained. A personal message from each seller was also excluded to keep submission simple; a card in the package could still create a connection to the next resale."
+            },
+            {
+              "type": "paragraph",
+              "text": "The central balance is recognisable quality with a more accessible entry point to the brand. Gift cards could encourage repeat purchases, while secondhand could introduce new customers to LA ROUGE. This is the concept’s business potential, not demonstrated revenue or environmental impact. Pricing, item inspection and settlement terms need clarification before implementation."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,3 +1,5 @@
+import { examProjects } from './examProjects.js'
+
 const shared = {
   name: 'Mikkel Damgaard Nielsen',
   nameLines: ['Mikkel', 'Damgaard', 'Nielsen'],
@@ -177,37 +179,7 @@ export const translations = {
             previousProject: 'Forrige projekt',
           },
         },
-        {
-          name: 'Mellemrum',
-          slug: 'mellemrum',
-          number: '003',
-          type: 'React-optimering',
-          catalogueType: 'React / Supabase / Case 1',
-          indexType: 'React / JavaScript / Supabase REST API / GitHub Pages',
-          indexDescription: 'Normaliseret data / registration / accessibility',
-          role: 'Frontend + datamodel',
-          description: 'React-optimering / relationel data / robust frontend',
-          tags: ['React', 'JavaScript', 'Supabase REST API', 'GitHub Pages'],
-          work: ['prioritering', 'normaliseret datamodel', 'tilmeldingsflow', 'relationelle fetches', 'robusthed og accessibility'],
-          detailTools: ['React', 'JavaScript', 'Supabase REST API', 'GitHub Pages', 'Git'],
-          year: '2026',
-          visuals: ['Datamodel før og efter', 'Deployment-test'],
-          caseStudy: {
-            projectLabel: 'Case / 03',
-            intro: 'React-optimering / relationel data / robust frontend',
-            metadata: [
-              { label: 'Rolle', value: 'Frontend / Data model / QA' },
-              { label: 'Fokus', value: 'Prioritering / Relations / Accessibility' },
-              { label: 'Teknologier', value: 'React · JavaScript · Supabase REST API · GitHub Pages' },
-              { label: 'Type', value: 'Case 1' },
-            ],
-            challenge: { title: 'Udfordring og prioritering', caption: 'Problem / prioritering / afgrænsning' },
-            dataModel: { title: 'Datamodel før og efter', caption: 'venues / events / registrations' },
-            registration: { title: 'Tilmeldingsflow og verifikation', caption: 'POST / eventId / manuel verifikation' },
-            robustness: { title: 'Robusthed og tilgængelighed', caption: 'states / cleanup / accessibility' },
-            reflection: { title: 'Refleksion og værdi', caption: 'valg / fravalg / næste kontrol' },
-          },
-        },
+
       ],
     },
     about: {
@@ -433,37 +405,7 @@ export const translations = {
             previousProject: 'Previous project',
           },
         },
-        {
-          name: 'Mellemrum',
-          slug: 'mellemrum',
-          number: '003',
-          type: 'React optimisation',
-          catalogueType: 'React / Supabase / Case 1',
-          indexType: 'React / JavaScript / Supabase REST API / GitHub Pages',
-          indexDescription: 'Normalised data / registration / accessibility',
-          role: 'Frontend + data model',
-          description: 'React optimisation / relational data / robust frontend',
-          tags: ['React', 'JavaScript', 'Supabase REST API', 'GitHub Pages'],
-          work: ['prioritisation', 'normalised data model', 'registration flow', 'relational fetches', 'robustness and accessibility'],
-          detailTools: ['React', 'JavaScript', 'Supabase REST API', 'GitHub Pages', 'Git'],
-          year: '2026',
-          visuals: ['Data model before and after', 'Deployment test'],
-          caseStudy: {
-            projectLabel: 'Case / 03',
-            intro: 'React optimisation / relational data / robust frontend',
-            metadata: [
-              { label: 'Role', value: 'Frontend / Data model / QA' },
-              { label: 'Focus', value: 'Prioritisation / Relations / Accessibility' },
-              { label: 'Technologies', value: 'React · JavaScript · Supabase REST API · GitHub Pages' },
-              { label: 'Type', value: 'Case 1' },
-            ],
-            challenge: { title: 'Challenge and prioritisation', caption: 'Problem / prioritisation / scope' },
-            dataModel: { title: 'Data model before and after', caption: 'venues / events / registrations' },
-            registration: { title: 'Registration flow and verification', caption: 'POST / eventId / manual verification' },
-            robustness: { title: 'Robustness and accessibility', caption: 'states / cleanup / accessibility' },
-            reflection: { title: 'Reflection and value', caption: 'choices / trade-offs / next check' },
-          },
-        },
+
       ],
     },
     about: {
@@ -522,4 +464,11 @@ export const translations = {
       },
     },
   },
+}
+
+for (const language of ['da', 'en']) {
+  translations[language].work.projects = [
+    ...translations[language].work.projects,
+    ...examProjects(language),
+  ]
 }

@@ -1,0 +1,31 @@
+.exam-case { max-width: 1600px; margin-inline: auto; }
+.exam-case__hero { padding-block: clamp(2rem, 5vw, 5rem) clamp(3rem, 6vw, 6rem); }
+.exam-case__hero .back-link { display: inline-block; margin-bottom: clamp(3rem, 7vw, 7rem); }
+.exam-case__eyebrow, .exam-case__tags, .exam-case__links, .exam-case__back { font-family: var(--font-mono); font-size: .8rem; line-height: 1.6; }
+.exam-case__eyebrow { color: var(--muted); margin-bottom: 1rem; }
+.exam-case h1 { font-size: clamp(3rem, 8vw, 8rem); line-height: 1.02; letter-spacing: -.06em; overflow-wrap: anywhere; max-width: 16ch; }
+.exam-case__intro { font-size: clamp(1.5rem, 3vw, 2.8rem); line-height: 1.2; max-width: 30ch; margin-top: 2rem; letter-spacing: -.035em; }
+.exam-case__tags { margin-top: 1.5rem; color: var(--muted); }
+.exam-case__links { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin-top: 2rem; }
+.exam-case__links a, .exam-case__back { text-decoration: underline; text-underline-offset: .35em; }
+.exam-case__section { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(2rem, 5vw, 6rem); border-top: 1px solid var(--line); padding-block: clamp(3rem, 6vw, 6rem); }
+.exam-case__section h2 { font-size: clamp(1.8rem, 3vw, 3rem); line-height: 1.1; letter-spacing: -.045em; max-width: 16ch; }
+.exam-case__body { min-width: 0; }
+.exam-case__body > p { max-width: 68ch; font-size: 1.05rem; line-height: 1.7; margin: 0 0 1.3rem; }
+.exam-case__body code { font-size: .88em; overflow-wrap: anywhere; }
+.exam-case__images { display: grid; gap: 1rem; margin-block: 2rem 1rem; align-items: start; }
+.exam-case__images--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.exam-case__images--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.exam-case__images figure { margin: 0; min-width: 0; }
+.exam-case__images a { display: block; }
+.exam-case__images img { width: 100%; height: auto; display: block; object-fit: contain; }
+.exam-case__body > .exam-case__caption { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+.exam-case__back { display: inline-block; margin-bottom: 4rem; }
+.exam-case a:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
+.exam-case h1:focus { outline: none; }
+@media(max-width: 800px) {
+  .exam-case__section { grid-template-columns: 1fr; }
+  .exam-case__section h2 { max-width: 24ch; }
+  .exam-case__images--2, .exam-case__images--3 { grid-template-columns: 1fr; }
+  .exam-case__images--2 figure, .exam-case__images--3 figure { width: 100%; max-width: 440px; margin-inline: auto; }
+}
