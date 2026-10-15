@@ -119,7 +119,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Den første implementering var utilstrækkeligt dokumenteret. Arbejdet blev derfor gentaget fra startkoden med baseline og audit før ændringerne. Kendte løsninger blev genbrugt åbent. Fem feature branches blev testet og flettet ind løbende; den oprindelige historik blev bevaret."
+              "text": "Den første implementering var utilstrækkeligt dokumenteret. Derfor blev kodeændringerne gennemført igen fra startkoden, denne gang med en indledende audit og løbende dokumentation af ændringer og test. Erfaringerne fra første implementering indgik i arbejdet."
             },
             {
               "type": "paragraph",
@@ -260,7 +260,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "The first implementation lacked sufficient ongoing documentation. I therefore completed a new round from the starter code, establishing a baseline and prioritised audit before code changes. I openly reused known solutions and worked in five feature branches, tested and merged in sequence. The original history was preserved."
+              "text": "The first implementation lacked sufficient documentation. The code changes were therefore implemented again from the starter code, this time with an initial audit and ongoing documentation of changes and tests. Experience from the first implementation informed this work."
             },
             {
               "type": "paragraph",
@@ -395,7 +395,7 @@
             },
             {
               "type": "paragraph",
-              "text": "De tre fund kan følges i redesignet: Manglende retning bliver mødt med synlige trin, et uklart “Shop name”-felt med hjælp ved feltet og svag feedback med tydelig status. Done kræver stadig omtanke, når der bagefter kommer et brandtrin. Ellers kan “færdig” skabe ny tvivl om, hvad der mangler."
+              "text": "Redesignet forbinder fundene med synlige trin, hjælp ved “Shop name” og tydelig status. “Done” afslutter den indledende opsætning med Shopify. Derefter skal brugeren forbinde sit første brand. Designet bør tydeliggøre forskellen, så “færdig” ikke opfattes som afslutningen på hele onboardingen."
             },
             {
               "type": "paragraph",
@@ -520,7 +520,7 @@
             },
             {
               "type": "paragraph",
-              "text": "My assessment is that the strongest aspect is the link between a specific finding and a specific change: unclear direction becomes progression, unclear Shop name becomes help in context, and weak feedback becomes explicit status. Done and the subsequent brand step should also be communicated consistently so that “finished” does not introduce new uncertainty."
+              "text": "The redesign addresses the findings with visible steps, help for Shop name and explicit status. Done completes the initial Shopify setup. Users then need to connect their first brand. The design should clarify this distinction so that finished is not understood as the end of the entire onboarding process."
             },
             {
               "type": "paragraph",
