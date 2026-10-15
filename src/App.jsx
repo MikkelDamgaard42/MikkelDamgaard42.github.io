@@ -3,9 +3,11 @@ import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import ProjectCard from './components/ProjectCard.jsx'
 import SelectedProjects from './components/SelectedProjects.jsx'
 import ProjectPage from './pages/ProjectPage.jsx'
+import MellemrumCasePage from './pages/MellemrumCasePage.jsx'
 import { translations } from './translations.js'
 import lynkMain from './assets/lynk-main.png'
 import bluntMain from './assets/blunt-main.png'
+import mellomrumMain from './assets/case1/deployment-test-offentlig.png'
 import mikkelAbout from './assets/mikkel-about.png'
 
 const getInitialLanguage = () => {
@@ -172,7 +174,7 @@ function HomePage({ copy }) {
 }
 
 function ProjectsPage({ copy }) {
-  const projectAssets = { lynk: lynkMain, fashion: bluntMain }
+  const projectAssets = { lynk: lynkMain, fashion: bluntMain, mellomrum: mellomrumMain }
 
   return (
     <main className="route-page projects-index-page">
@@ -289,6 +291,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage copy={copy} />} />
         <Route path="/projects" element={<ProjectsPage copy={copy} />} />
+        <Route path="/projects/mellemrum" element={<MellemrumCasePage copy={copy} project={copy.work.projects.find((item) => item.slug === 'mellemrum')} />} />
         <Route path="/projects/:slug" element={<ProjectPage copy={copy} />} />
         <Route path="/about" element={<AboutPage copy={copy} />} />
         <Route path="/contact" element={<ContactPage copy={copy} />} />
