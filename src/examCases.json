@@ -489,7 +489,7 @@
   },
   "larchive": {
     "da": {
-      "title": "L’Archive by LA ROUGE",
+      "title": "L’ARCHIVE by LA ROUGE",
       "subtitle": "Et selvstændigt univers for tøj med mere at give",
       "tags": "Brandkoncept · Visuel identitet · Brugerrejser · Figma",
       "links": [
@@ -504,7 +504,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "LA ROUGEs recommerce-initiativ skulle have en tydelig identitet og digital oplevelse uden at miste forbindelsen til moderbrandet. Gruppeprojektet udviklede L’Archive: et secondhand-univers, der gør tøjets fortsatte værdi synlig og giver både sælger og køber en overskuelig vej gennem konceptet."
+              "text": "LA ROUGEs recommerce-initiativ skulle have en tydelig identitet og digital oplevelse uden at miste forbindelsen til moderbrandet. Gruppeprojektet udviklede L’ARCHIVE: et secondhand-univers, der gør tøjets fortsatte værdi synlig og giver både sælger og køber en overskuelig vej gennem konceptet."
             },
             {
               "type": "paragraph",
@@ -517,7 +517,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Et arkiv er noget, man bevarer, fordi det har værdi. L’Archive overfører LA ROUGEs idé om selvværd til tøjet: Det har stadig værdi efter første ejer. “By LA ROUGE” fungerer som endorsement, mens eget navn, monogram og et særskilt udtryk giver konceptet plads til at stå selvstændigt."
+              "text": "Et arkiv er noget, man bevarer, fordi det har værdi. L’ARCHIVE overfører LA ROUGEs idé om selvværd til tøjet: Det har stadig værdi efter første ejer. “By LA ROUGE” fungerer som endorsement, mens eget navn, monogram og et særskilt udtryk giver konceptet plads til at stå selvstændigt."
             },
             {
               "type": "paragraph",
@@ -527,7 +527,7 @@
               "type": "images",
               "images": [
                 {
-                  "alt": "L’Archives designsystem med logo, vinrød og neutral palette, typografi, ikoner og UI-komponenter.",
+                  "alt": "L’ARCHIVEs designsystem med logo, vinrød og neutral palette, typografi, ikoner og UI-komponenter.",
                   "file": "larchive/visuel-identitet.png"
                 }
               ]
@@ -610,7 +610,7 @@
       ]
     },
     "en": {
-      "title": "L’Archive by LA ROUGE",
+      "title": "L’ARCHIVE by LA ROUGE",
       "subtitle": "A distinct home for clothing with more to give",
       "tags": "Brand concept · Visual identity · User journeys · Figma",
       "links": [
@@ -625,7 +625,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "LA ROUGE’s recommerce initiative needed a clear identity and digital experience without losing its connection to the parent brand. The group project developed L’Archive: a secondhand concept that highlights clothing’s continuing value and gives sellers and buyers a clear path through the experience."
+              "text": "LA ROUGE’s recommerce initiative needed a clear identity and digital experience without losing its connection to the parent brand. The group project developed L’ARCHIVE: a secondhand concept that highlights clothing’s continuing value and gives sellers and buyers a clear path through the experience."
             },
             {
               "type": "paragraph",
@@ -638,7 +638,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "An archive is something preserved because it has value. L’Archive transfers LA ROUGE’s idea of self-worth to clothing: it still has value after its first owner. “By LA ROUGE” provides endorsement, while a separate name, monogram and visual expression give the concept its own identity."
+              "text": "An archive is something preserved because it has value. L’ARCHIVE transfers LA ROUGE’s idea of self-worth to clothing: it still has value after its first owner. “By LA ROUGE” provides endorsement, while a separate name, monogram and visual expression give the concept its own identity."
             },
             {
               "type": "paragraph",
@@ -648,7 +648,7 @@
               "type": "images",
               "images": [
                 {
-                  "alt": "L’Archive design system with logo, wine red and neutral palette, typography, icons and UI components.",
+                  "alt": "L’ARCHIVE design system with logo, wine red and neutral palette, typography, icons and UI components.",
                   "file": "larchive/visuel-identitet.png"
                 }
               ]

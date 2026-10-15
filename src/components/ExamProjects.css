@@ -8,4 +8,10 @@
 .exam-projects a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
 .index-project--mellemrum .index-project__visual img, .index-project--vuuh .index-project__visual img, .index-project--larchive .index-project__visual img { object-fit: contain; width: 100%; height: auto; max-height: 650px; }
 @media(max-width: 800px) { .exam-projects { grid-template-columns: 1fr; } }
-.index-project:is(.index-project--mellemrum, .index-project--vuuh, .index-project--larchive) h2 { font-size: clamp(2.5rem, 4vw, 3.2rem); line-height: 1.05; overflow-wrap: anywhere; }
+/* Keep the longer exam names inside their own column at every breakpoint. */
+.projects-index .index-project--exam .index-project__layout { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+.projects-index .index-project--exam h2 { max-width: 100%; font-size: clamp(2.25rem, 4vw, 3.2rem); line-height: 1.05; overflow-wrap: anywhere; }
+.projects-index .index-project--exam .index-project__title-link { display: block; max-width: 100%; }
+@media (max-width: 850px) {
+  .projects-index .index-project--exam .index-project__layout { grid-template-columns: minmax(0, 1fr); }
+}
