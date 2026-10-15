@@ -32,11 +32,11 @@
             },
             {
               "type": "paragraph",
-              "text": "Formularen skrev kun input i konsollen og gemte ingen tilmelding. Oplysninger om steder blev gentaget på events, og tilmeldinger gemte kopier af eventdata. Hvis datahentningen fejlede, kunne eventsiden stå uden en forklaring."
+              "text": "Formularen skrev kun input i konsollen og gemte ingen tilmelding. Oplysninger om steder blev gentaget på events, og tilmeldinger gemte kopier af eventdata. Hvis datahentningen fejlede, kunne eventsiden blive vist uden en forklaring."
             },
             {
               "type": "paragraph",
-              "text": "Første prioritet var at få data og tilmelding til at hænge sammen: Brugeren skulle kunne tilmelde sig et event, og arrangøren skulle kunne finde den rigtige tilmelding. Fejlhåndtering og tilgængelighed skulle støtte det flow. Et nyt visuelt design og flere funktioner blev nedprioriteret."
+              "text": "Den første prioritet var at få data og tilmelding til at hænge sammen: Brugeren skulle kunne tilmelde sig et event, og arrangøren skulle kunne finde den rigtige tilmelding. Fejlhåndtering og tilgængelighed skulle støtte det flow. Et nyt visuelt design og flere funktioner blev nedprioriteret."
             }
           ]
         },
@@ -45,11 +45,11 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Gentagne oplysninger kan komme ud af trit og skal rettes flere steder. I den ændrede datamodel ligger steder i `venues`. Et event peger på sit sted via `venueId`, og en tilmelding peger på sit event via et obligatorisk `eventId`. Fremmednøgler sikrer, at henvisningerne peger på rækker, der findes."
+              "text": "Gentagne oplysninger kan blive inkonsistente og skal rettes flere steder. I den ændrede datamodel ligger steder i `venues`. Et event henviser til sit sted via `venueId`, og en tilmelding henviser til sit event via et obligatorisk `eventId`. Fremmednøgler sikrer, at henvisningerne peger på rækker, der findes."
             },
             {
               "type": "paragraph",
-              "text": "Migrationen oprettede relationerne, før kopifelterne blev fjernet. SQL-kontroller viste ingen forskelle i de sammenlignede oplysninger. En isoleret databasetest kontrollerede migration, frisk opsætning og constraints. Oplysningerne skal dermed vedligeholdes færre steder."
+              "text": "Migrationen oprettede relationerne, før kopifelterne blev fjernet. SQL-kontroller viste ingen forskelle i de sammenlignede oplysninger. En isoleret databasetest kontrollerede migration, ny opsætning og databasebegrænsninger. Oplysningerne skal dermed vedligeholdes færre steder."
             },
             {
               "type": "images",
@@ -62,7 +62,7 @@
             },
             {
               "type": "caption",
-              "text": "Efterfølgende illustration af schemaændringen. SQL-kontroller og migrationsfiler dokumenterer selve ændringen."
+              "text": "Efterfølgende illustration af skemaændringen. SQL-kontroller og migrationsfiler dokumenterer selve ændringen."
             }
           ]
         },
@@ -110,7 +110,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "API-håndteringen kontrollerer `response.ok`, og siden har tilstande for indlæsning, fejl, tomme svar og events, der ikke findes. Formularfelter har labels, oversigten bruger en semantisk tabel, og fokus er synligt ved tastaturbrug. En `key` baseret på `eventId` nulstiller eventsiden ved eventskift, så tidligere formularfeedback ikke følger med. Det blev afprøvet i samme React-session med forsinkede svar og tidligere feedback."
+              "text": "API-håndteringen kontrollerer `response.ok`, og siden har tilstande for indlæsning, fejl, tomme svar og events, der ikke findes. Formularfelterne har etiketter, oversigten bruger en semantisk tabel, og fokus er synligt ved tastaturbrug. En `key` baseret på `eventId` nulstiller eventsiden ved eventskift, så tidligere formularfeedback ikke følger med. Det blev afprøvet i samme React-session med forsinkede svar og tidligere feedback."
             }
           ]
         },
@@ -119,19 +119,19 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Den første implementering var utilstrækkeligt dokumenteret. Arbejdet blev derfor gentaget fra startkoden med baseline og audit før ændringerne. Kendte løsninger blev genbrugt åbent. Fem feature branches blev testet og merged løbende; den oprindelige historik blev bevaret."
+              "text": "Den første implementering var utilstrækkeligt dokumenteret. Arbejdet blev derfor gentaget fra startkoden med baseline og audit før ændringerne. Kendte løsninger blev genbrugt åbent. Fem feature branches blev testet og flettet ind løbende; den oprindelige historik blev bevaret."
             },
             {
               "type": "paragraph",
-              "text": "Lint, build og deployment bestod. En efterfølgende før/efter-sammenligning afslørede dog en CLS-regression på eventsiden: Indholdet flyttede sig under indlæsning. Reserveret plads under datahentningen fjernede layoutskiftet i tre lokale gentagelser. Median CLS gik fra 0,601 til 0 og Performance fra 56 til 79. LCP var omtrent uændret på 5,8 sekunder. Det er lokale laboratorietests med seed-data, ikke dokumentation for hurtigere indlæsning hos alle brugere."
+              "text": "Lint og build bestod, og publiceringen lykkedes. En efterfølgende før/efter-sammenligning afslørede dog en CLS-regression på eventsiden: Indholdet flyttede sig under indlæsning. Reserveret plads under datahentningen fjernede layoutskiftet i tre lokale gentagelser. Medianen for CLS faldt fra 0,601 til 0, og performance-scoren steg fra 56 til 79. LCP var omtrent uændret på 5,8 sekunder. Lokale laboratorietests med testdata dokumenterer ikke hurtigere indlæsning hos alle brugere."
             },
             {
               "type": "paragraph",
-              "text": "Tilmeldingen bliver nu gemt, og arrangøren kan se den sammen med det rigtige event. Det kan mindske frafald og dobbeltvedligeholdelse, men konvertering og tidsbesparelse er ikke målt. Login, betaling og kapacitetsstyring blev fravalgt. En fuld kontrol med skærmlæser er ikke gennemført."
+              "text": "Tilmeldingen bliver nu gemt, og arrangøren kan se den sammen med det rigtige event. Det kan mindske frafald og dobbeltvedligeholdelse, men konvertering og tidsbesparelse er ikke målt. Login, betaling og kapacitetsstyring blev fravalgt. En fuld skærmlæsertest er ikke gennemført."
             },
             {
               "type": "paragraph",
-              "text": "Den offentlige eventroute returnerer fortsat HTTP 404, selvom browseren viser siden. Det er en uløst publiceringsfejl."
+              "text": "Den offentlige eventroute returnerer fortsat HTTP 404, selvom browseren viser siden. Publiceringsfejlen er uløst."
             },
             {
               "type": "paragraph",
@@ -308,7 +308,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Vi brugte generativ AI som sparringspartner gennem processen til at drøfte de enkelte trin og få input til vurderingen af vores findings."
+              "text": "Vi brugte generativ AI som sparringspartner gennem processen til at drøfte de enkelte trin og få input til vurderingen af vores fund."
             }
           ]
         },
@@ -321,7 +321,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Dashboardet viste flere handlinger uden en klar rækkefølge. “Shop name” gjorde det uklart, hvilken oplysning fra Shopify der skulle bruges, og efter forbindelsen manglede en tydelig bekræftelse. Gruppen prioriterede de tre fund, fordi de vedrører nødvendige trin i opsætningen. Fundene er auditvurderinger, ikke brugertestresultater."
+              "text": "Dashboardet viste flere handlinger uden en klar rækkefølge. “Shop name” gjorde det uklart, hvilken oplysning fra Shopify der skulle bruges, og efter tilslutningen manglede en tydelig bekræftelse. Gruppen prioriterede de tre fund, fordi de vedrører nødvendige trin i opsætningen. Fundene er auditvurderinger, ikke brugertestresultater."
             }
           ]
         },
@@ -330,7 +330,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Redesignet viser fire trin: Get started, Shopify, Setup og Done. En trinindikator viser, hvor brugeren er, og hvad der er gennemført. Én primær handling peger videre. Det giver et billede af forløbet, en conceptual model, og adresserer Gulf of Execution: afstanden mellem brugerens mål og forståelsen af, hvad hun skal gøre."
+              "text": "Redesignet viser fire trin: Get started, Shopify, Setup og Done. En trinindikator viser, hvor brugeren er, og hvad der er gennemført. Én primær handling peger videre. Det skaber en konceptuel model af forløbet og adresserer Gulf of Execution: afstanden mellem brugerens mål og forståelsen af de nødvendige handlinger."
             },
             {
               "type": "images",
@@ -369,7 +369,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Flowet viser både ventetid, succes og fejl. Success-skærmen bekræfter forbindelsen og peger videre til opsætningen. Det adresserer Gulf of Evaluation: Brugeren skal kunne aflæse resultatet af sin handling. Efter Done viser designet vejen til at forbinde det første brand."
+              "text": "Flowet viser både ventetid, succes og fejl. Successkærmen bekræfter forbindelsen og peger videre til opsætningen. Det adresserer Gulf of Evaluation: Brugeren skal kunne aflæse resultatet af sin handling. Efter Done viser designet vejen til at forbinde det første brand."
             },
             {
               "type": "images",
@@ -391,11 +391,11 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Gruppens Accessibility Design Check gennemgik blandt andet kontrast, labels, information vist med farve og hjælp ved fejl. Præsentationen beskriver ændret kontrast og en fejltilstand med tekst, ikon og mulighed for at prøve igen. Statiske skærme viser ikke, om tastaturbetjening og fokus virker. Checket dokumenterer derfor ikke fuld WCAG-overholdelse."
+              "text": "Gruppens Accessibility Design Check omfattede kontrast, feltetiketter, information formidlet med farver og hjælp ved fejl. Præsentationen beskriver ændret kontrast og en fejltilstand med tekst, ikon og mulighed for at prøve igen. Statiske skærme viser ikke, om tastaturbetjening og fokus virker. Designchecket dokumenterer derfor ikke fuld WCAG-overholdelse."
             },
             {
               "type": "paragraph",
-              "text": "De tre fund kan følges i redesignet: Manglende retning bliver mødt med synlige trin, uklart Shop name med hjælp ved feltet og svag feedback med tydelig status. Done kræver stadig omtanke, når der bagefter kommer et brandtrin. Ellers kan “færdig” skabe ny tvivl om, hvad der mangler."
+              "text": "De tre fund kan følges i redesignet: Manglende retning bliver mødt med synlige trin, et uklart “Shop name”-felt med hjælp ved feltet og svag feedback med tydelig status. Done kræver stadig omtanke, når der bagefter kommer et brandtrin. Ellers kan “færdig” skabe ny tvivl om, hvad der mangler."
             },
             {
               "type": "paragraph",
@@ -403,7 +403,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Kilder: Gruppens auditboard og præsentation, slide 2–10. UX Audit Summary er en efterfølgende sammenfatning med sidehenvisninger, ikke en ny undersøgelse."
+              "text": "Kilder: Gruppens auditboard og præsentation, slides 2–10. UX Audit Summary er en efterfølgende sammenfatning med sidehenvisninger, ikke en ny undersøgelse."
             }
           ]
         }
@@ -564,11 +564,11 @@
             },
             {
               "type": "paragraph",
-              "text": "Konceptet henvender sig til eksisterende kunder med tøj, de ikke længere bruger, og prisbevidste kvalitetskøbere. Gruppens materiale bygger på desk research, den eksisterende løsning og en beskrevet gennemgang af 23 Vinted-annoncer. Her blev blandt andet manglende modelnavne og problemer med kombinerede størrelser fremhævet."
+              "text": "Konceptet henvender sig til eksisterende kunder med tøj, de ikke længere bruger, og prisbevidste kvalitetskøbere. Gruppens materiale bygger på desk research, den eksisterende løsning og en gennemgang af 23 Vinted-annoncer. Her blev blandt andet manglende modelnavne og problemer med kombinerede størrelser fremhævet."
             },
             {
               "type": "paragraph",
-              "text": "Jeg brugte AI til farvepalette og hexkoder, da jeg er farveblind. Vi brugte også AI til journey map og forslag til køber- og sælgerflows, som vi sammenholdt med vores research for at undersøge, om antallet af skærme kunne reduceres."
+              "text": "Jeg brugte AI til farvepaletten og hexkoderne, da jeg er farveblind. Vi brugte også AI til et journey map og forslag til køber- og sælgerflows, som vi sammenholdt med vores research for at undersøge, om antallet af skærme kunne reduceres."
             }
           ]
         },
@@ -577,11 +577,11 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Navnet L’ARCHIVE og arkivnummeret blev udviklet og valgt i fællesskab. Arkivet står for noget, der er værd at bevare: Tøjet har stadig værdi efter første ejer. Det bygger videre på LA ROUGEs idé om selvværd. “By LA ROUGE” gør afsenderen tydelig, mens navn, monogram og eget visuelt udtryk adskiller secondhand-konceptet fra moderbrandet."
+              "text": "Navnet L’ARCHIVE og arkivnummeret blev udviklet og valgt i fællesskab. Arkivet står for noget, der er værd at bevare: Tøjet har stadig værdi efter den første ejer. Det bygger videre på LA ROUGEs idé om selvværd. “By LA ROUGE” gør afsenderen tydelig, mens navn, monogram og eget visuelt udtryk adskiller secondhand-konceptet fra moderbrandet."
             },
             {
               "type": "paragraph",
-              "text": "Identiteten bruger vinrød, varme neutrale farver, Instrument Serif og Hanken Grotesk. Franske formuleringer og en varm, feminin tone knytter den til LA ROUGE. Men brugeren skal også kunne forstå produktet. Derfor får standen “Joliment portée” en dansk forklaring."
+              "text": "Identiteten bruger en vinrød farve, varme neutrale farver, Instrument Serif og Hanken Grotesk. Franske formuleringer og en varm, feminin tone knytter den til LA ROUGE. Men brugeren skal også kunne forstå produktet. Derfor får standen “Joliment portée” en dansk forklaring."
             },
             {
               "type": "images",
@@ -693,7 +693,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Kilder: Gruppens originale branddeck, slide 3–4 og 7–12: LA ROUGE-oplæg 28/9, Vinted-gennemgang og designkoncept. Se branddeck og Figma-designfil."
+              "text": "Kilder: Gruppens originale branddeck, slides 3–4 og 7–12: LA ROUGE-oplæg 28/9, Vinted-gennemgang og designkoncept. Se branddeck og Figma-designfil."
             }
           ]
         }
