@@ -16,6 +16,10 @@
         {
           "label": "Teknisk audit og testdokumentation",
           "href": "https://github.com/MikkelDamgaard42/case1/tree/main/docs/replay"
+        },
+        {
+          "label": "Lighthouse: før/efter og CLS-rettelse",
+          "href": "https://github.com/MikkelDamgaard42/case1/tree/main/docs/lighthouse/2026-10-15"
         }
       ],
       "sections": [
@@ -119,11 +123,11 @@
             },
             {
               "type": "paragraph",
-              "text": "Lint, production build og deployment bestod. Direkte eventroute og genindlæsning blev kontrolleret; den publicerede løsning blev afprøvet med faktisk Supabase. Kontrollerede fejltests brugte en isoleret lokal database og REST-adapter."
+              "text": "Lint, build og deployment bestod. En efterfølgende før/efter-sammenligning afslørede en CLS-regression på eventsiden. Reserveret plads under datahentning fjernede layoutskiftet i tre lokale gentagelser: median CLS 0,601 → 0 og Performance 56 → 79; LCP var omtrent uændret på 5,8 sekunder. Målingerne er lokale laboratorietests med seed-data, ikke dokumentation for hurtigere indlæsning hos alle brugere."
             },
             {
               "type": "paragraph",
-              "text": "Den vigtigste værdi er nu et fungerende tilmeldingsflow og et sammenhængende arrangøroverblik. Det kan mindske frafald og dobbeltvedligeholdelse, men konvertering og tidsbesparelse er ikke målt. Login, betaling og kapacitetsstyring blev fravalgt. Fuld skærmlæserkontrol og performancemålinger er fortsat mulige næste skridt."
+              "text": "Den vigtigste værdi er nu et fungerende tilmeldingsflow og et sammenhængende arrangøroverblik. Det kan mindske frafald og dobbeltvedligeholdelse, men konvertering og tidsbesparelse er ikke målt. Login, betaling og kapacitetsstyring blev fravalgt. Fuld skærmlæserkontrol er fortsat et muligt næste skridt."
             }
           ]
         }
@@ -145,6 +149,10 @@
         {
           "label": "Technical audit and test documentation",
           "href": "https://github.com/MikkelDamgaard42/case1/tree/main/docs/replay"
+        },
+        {
+          "label": "Lighthouse: before/after and CLS fix",
+          "href": "https://github.com/MikkelDamgaard42/case1/tree/main/docs/lighthouse/2026-10-15"
         }
       ],
       "sections": [
@@ -248,11 +256,11 @@
             },
             {
               "type": "paragraph",
-              "text": "Lint, production build and deployment passed. Direct event routes and reloading were checked; the published application was tested with actual Supabase. Controlled failure tests used an isolated local database and REST adapter."
+              "text": "Lint, build and deployment passed. A subsequent before/after comparison revealed a CLS regression on the event page. Reserving space while fetching data removed the layout shift in three local repetitions: median CLS 0.601 → 0 and Performance 56 → 79; LCP remained approximately unchanged at 5.8 seconds. These are local laboratory tests with seed data, not evidence of faster loading for every user."
             },
             {
               "type": "paragraph",
-              "text": "The main value is a working registration flow and a coherent organiser overview. This may reduce drop-off and duplicate maintenance, but conversion and time savings have not been measured. Login, payment and capacity management were excluded. Full screen reader checks and performance measurements remain possible next steps."
+              "text": "The main value is a working registration flow and a coherent organiser overview. This may reduce drop-off and duplicate maintenance, but conversion and time savings have not been measured. Login, payment and capacity management were excluded. Full screen reader checks remain a possible next step."
             }
           ]
         }
