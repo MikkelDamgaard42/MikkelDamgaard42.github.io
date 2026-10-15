@@ -11,9 +11,13 @@ const covers = {
 export function examProjects(language) {
   return Object.entries(cases).map(([slug, content], index) => {
     const study = content[language]
+    const indexTitle = slug === 'larchive' ? 'L’ARCHIVE' : study.title
     return {
       slug,
       name: study.title,
+      indexTitle,
+      indexByline: slug === 'larchive' ? 'BY LA ROUGE' : null,
+      indexLayout: indexTitle.length > 8 ? 'wide' : 'split',
       number: String(index + 3).padStart(3, '0'),
       indexType: `Case ${index + 1} · ${study.tags.split(' · ')[0]}`,
       indexDescription: study.subtitle,

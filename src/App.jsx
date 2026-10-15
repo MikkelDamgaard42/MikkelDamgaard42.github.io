@@ -193,12 +193,13 @@ function ProjectsPage({ copy }) {
             const number = String(index + 1).padStart(2, '0')
 
             return (
-              <article className={`index-project index-project--${project.slug}${project.cover ? ' index-project--exam' : ''}`} key={project.name}>
+              <article className={`index-project index-project--${project.slug}${project.cover ? ` index-project--exam index-project--${project.indexLayout}` : ''}`} key={project.name}>
                 <div className="index-project__layout">
                   <div className="index-project__info">
                     <p className="index-project__meta">{number} / {project.name}</p>
                     <p className="index-project__type">{project.indexType}</p>
-                    <h2><Link className="index-project__title-link" to={path}>{project.name}</Link></h2>
+                    <h2><Link className="index-project__title-link" to={path}>{project.indexTitle ?? project.name}</Link></h2>
+                    {project.indexByline && <p className="index-project__byline">{project.indexByline}</p>}
                     <p className="index-project__description">{project.indexDescription}</p>
                     <Link className="index-project__cta" to={path}>{copy.work.viewCase} <i aria-hidden="true">→</i></Link>
                   </div>
