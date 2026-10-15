@@ -300,11 +300,11 @@
       ],
       "sections": [
         {
-          "title": "Udfordringen og min rolle",
+          "title": "Udfordring og samarbejde",
           "blocks": [
             {
               "type": "paragraph",
-              "text": "En ny bruger hos Vuuh skal forbinde sin Shopify-butik og forstå, hvad der skal ske bagefter. I gruppeprojektet gennemgik vi onboardingen og omsatte fundene til et guidet flow i Figma. Jeg deltog i den indledende heuristiske evaluering, udviklingen af Finding Cards og det redesignede onboardingflow."
+              "text": "En ny bruger hos Vuuh skal forbinde sin Shopify-butik og forstå, hvad der skal ske bagefter. Vi gennemgik onboardingen som gruppe og udviklede et guidet flow i Figma. Mit bidrag omfattede den indledende heuristiske evaluering, Finding Cards og udviklingen af onboardingflowet."
             },
             {
               "type": "paragraph",
@@ -429,11 +429,11 @@
       ],
       "sections": [
         {
-          "title": "The challenge",
+          "title": "Challenge and collaboration",
           "blocks": [
             {
               "type": "paragraph",
-              "text": "A new Vuuh user needs to understand the product and connect a Shopify store. The group project investigated uncertainty in onboarding and translated its findings into a guided Figma flow. The focus was the connection between diagnosis, redesign and refinement through accessibility. I contributed to the initial heuristic evaluation, Finding Cards and redesigned onboarding flow. We used generative AI as a discussion partner throughout the process and to help assess our findings."
+              "text": "A new Vuuh user needs to connect a Shopify store and understand what comes next. We reviewed onboarding as a group and developed a guided Figma flow. My contribution included the initial heuristic evaluation, Finding Cards and development of the onboarding flow. We used AI as a discussion partner throughout the process and to help assess our findings."
             }
           ]
         },
@@ -516,7 +516,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "The Accessibility Design Check challenged contrast, labels, information conveyed through colour and help after errors. The group’s presentation describes contrast changes and an error state with text, an icon and a retry option. Keyboard interaction and focus cannot be evaluated from static screens; the design check therefore does not demonstrate full WCAG compliance."
+              "text": "We used Accessibility Design Check to review contrast, field labels, colour and help after errors. We adjusted contrast and developed an error state with text, an icon and a retry option. Keyboard interaction and focus need to be tested in a working implementation."
             },
             {
               "type": "paragraph",
@@ -556,19 +556,19 @@
       ],
       "sections": [
         {
-          "title": "Udfordringen og min rolle",
+          "title": "Udfordring og samarbejde",
           "blocks": [
             {
               "type": "paragraph",
-              "text": "LA ROUGE ønskede et secondhand-koncept med sin egen identitet og en tydelig forbindelse til moderbrandet. I gruppeprojektet udviklede vi L’ARCHIVE til kunder, der vil sælge deres tøj videre, og købere, der vil finde brugt LA ROUGE. Jeg bidrog til navneudviklingen, lavede moodboardet og deltog i den fælles koncept- og identitetsudvikling."
+              "text": "LA ROUGE ønskede et secondhand-koncept med sin egen identitet og en tydelig forbindelse til moderbrandet. Vi udviklede L’ARCHIVE til kunder, der vil sælge deres tøj videre, og købere, der vil finde brugt LA ROUGE. Projektet blev udviklet i fællesskab; mit bidrag omfattede navneudvikling, moodboard, koncept og visuel identitet."
             },
             {
               "type": "paragraph",
-              "text": "Konceptet henvender sig til eksisterende kunder med tøj, de ikke længere bruger, og prisbevidste kvalitetskøbere. Gruppens materiale bygger på desk research, den eksisterende løsning og en gennemgang af 23 Vinted-annoncer. Her blev blandt andet manglende modelnavne og problemer med kombinerede størrelser fremhævet."
+              "text": "Vi tog udgangspunkt i desk research, den eksisterende løsning og en gennemgang af 23 Vinted-annoncer. Her fandt vi blandt andet manglende modelnavne og problemer med kombinerede størrelser. Konceptet henvender sig til eksisterende kunder og prisbevidste kvalitetskøbere."
             },
             {
               "type": "paragraph",
-              "text": "Jeg brugte AI til farvepaletten og hexkoderne, da jeg er farveblind. Vi brugte også AI til et journey map og forslag til køber- og sælgerflows, som vi sammenholdt med vores research for at undersøge, om antallet af skærme kunne reduceres."
+              "text": "AI blev brugt som støtte til farvepalette og hexkoder, da jeg er farveblind, samt til journey map og forslag til køber- og sælgerflows. Forslagene blev sammenholdt med vores research og indgik i arbejdet med Figma-prototypen."
             }
           ]
         },
@@ -681,15 +681,15 @@
           ]
         },
         {
-          "title": "Valg, fravalg og forventet værdi",
+          "title": "Proces og forventet værdi",
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Gruppen brugte brainstorm, Lotus Blossom og sammenligning af konceptretninger. Et komplet katalog med en side til hver model blev fravalgt på grund af begrænset lager. Arkivnummer, fysisk mærke, QR-indgang og muligheden for at følge en model blev bevaret. En personlig sælgerhilsen blev fravalgt for at forenkle indleveringen. Et kort i pakken kunne vise vejen til næste videresalg."
+              "text": "Vi brainstormede, arbejdede med Lotus Blossom og sammenlignede forskellige konceptretninger. Vi udviklede en prototype med både et købs- og et salgsflow. Sælgerflowet guider brugeren gennem produktvalg, stand, billeder, værdi og afsendelse. Køberflowet viser vejen fra produktoversigt til produkt, kurv og checkout. Arkivnummeret og QR-mærket binder konceptet sammen ved at give tøjet en indgang til næste videresalg."
             },
             {
               "type": "paragraph",
-              "text": "Gavekort kan få kunder til at købe igen, og secondhand kan give nye kunder en vej ind til LA ROUGE. Det er forventet værdi; der er ikke dokumenteret effekt på omsætning eller miljø. Før konceptet kan realiseres, skal blandt andet prisfastsættelse, kontrol af varer og afregningsvilkår afklares."
+              "text": "Gavekort kan give eksisterende kunder anledning til at handle igen, mens secondhand kan introducere nye kunder til LA ROUGE. Effekten er ikke målt. Før løsningen kan realiseres, skal blandt andet prisfastsættelse, kontrol af tøjet og afregning med sælgeren afklares."
             },
             {
               "type": "paragraph",
@@ -719,11 +719,11 @@
       ],
       "sections": [
         {
-          "title": "Challenge and direction",
+          "title": "Challenge and collaboration",
           "blocks": [
             {
               "type": "paragraph",
-              "text": "LA ROUGE’s recommerce initiative needed a clear identity and digital experience without losing its connection to the parent brand. The group project developed L’ARCHIVE: a secondhand concept that highlights clothing’s continuing value and gives sellers and buyers a clear path through the experience. I contributed to naming, created the moodboard and participated in the shared concept and identity development. As I am colour-blind, I used AI to support the palette and hex codes. We also used AI for the journey map and possible buyer and seller flows, comparing suggestions with our research to explore fewer screens."
+              "text": "LA ROUGE wanted a secondhand concept with its own identity and a clear connection to the parent brand. We developed L’ARCHIVE for people reselling their clothing and buyers looking for secondhand LA ROUGE. We developed the project together; my contribution included naming, the moodboard, concept and visual identity. AI supported the palette and hex codes, as I am colour-blind, as well as the journey map and possible buyer and seller flows. We compared suggestions with our research and used them in developing the Figma prototype."
             },
             {
               "type": "paragraph",
@@ -840,15 +840,15 @@
           ]
         },
         {
-          "title": "Choices, exclusions and value",
+          "title": "Process and expected value",
           "blocks": [
             {
               "type": "paragraph",
-              "text": "The process included brainstorming, Lotus Blossom and comparison of concept directions. A complete digital catalogue with a page for every model was excluded because of limited stock. The archive idea was retained: the archive number, physical tag and QR entry point to the next resale remain central to the concept. Following a model was also retained. A personal message from each seller was excluded to keep submission simple; a card in the package could still create a connection to the next resale."
+              "text": "We brainstormed, worked with Lotus Blossom and compared concept directions. We developed a prototype with both a buyer and a seller flow. The seller flow guides users through product selection, condition, photos, value and shipping. The buyer flow leads from the product overview to product, cart and checkout. The archive number and QR tag connect the concept by providing an entry point to the next resale."
             },
             {
               "type": "paragraph",
-              "text": "The central balance is recognisable quality with a more accessible entry point to the brand. Gift cards could encourage repeat purchases, while secondhand could introduce new customers to LA ROUGE. This is the concept’s business potential, not demonstrated revenue or environmental impact. Pricing, item inspection and settlement terms need clarification before implementation."
+              "text": "Gift cards could encourage existing customers to return, while secondhand could introduce new customers to LA ROUGE. The impact has not been measured. Pricing, item inspection and settlement with sellers need clarification before implementation."
             },
             {
               "type": "paragraph",
