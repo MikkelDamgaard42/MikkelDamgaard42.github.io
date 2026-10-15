@@ -28,7 +28,7 @@
           "blocks": [
             {
               "type": "paragraph",
-              "text": "Mellemrum hjælper brugere med at finde lokale kulturoplevelser i Aarhus. Det var et individuelt projekt med en udleveret React-prototype og et eksisterende visuelt design. Jeg opsatte Supabase manuelt. Generativ AI blev brugt til sparring samt som hjælp til implementering, fejlfinding, test, dokumentation og tekstudkast."
+              "text": "Mellemrum hjælper brugere med at finde lokale kulturoplevelser i Aarhus. Det var et individuelt projekt med en udleveret React-prototype og et eksisterende visuelt design. Jeg opsatte Supabase manuelt. AI blev brugt til sparring samt som hjælp til implementering, fejlfinding, test, dokumentation og tekstudkast."
             },
             {
               "type": "paragraph",
@@ -123,7 +123,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Lint og build bestod, og publiceringen lykkedes. En efterfølgende før/efter-sammenligning afslørede dog en CLS-regression på eventsiden: Indholdet flyttede sig under indlæsning. Reserveret plads under datahentningen fjernede layoutskiftet i tre lokale gentagelser. Medianen for CLS faldt fra 0,601 til 0, og performance-scoren steg fra 56 til 79. LCP var omtrent uændret på 5,8 sekunder. Lokale laboratorietests med testdata dokumenterer ikke hurtigere indlæsning hos alle brugere."
+              "text": "Lint og build bestod, og publiceringen lykkedes. En efterfølgende før/efter-sammenligning afslørede dog en CLS-regression på eventsiden: Indholdet flyttede sig under indlæsning. Reserveret plads under datahentningen fjernede layoutskiftet i tre lokale gentagelser. Medianen for CLS faldt fra 0,601 til 0, og performance-scoren steg fra 56 til 79. LCP lå stadig på cirka 5,8 sekunder. Lighthouse-testene viste færre layoutskift, men ikke hurtigere indlæsning. De blev kørt lokalt med faste indstillinger og testdata."
             },
             {
               "type": "paragraph",
@@ -308,7 +308,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Vi brugte generativ AI som sparringspartner gennem processen til at drøfte de enkelte trin og få input til vurderingen af vores fund."
+              "text": "Vi brugte AI som sparringspartner gennem processen til at drøfte de enkelte trin og få input til vurderingen af vores fund."
             }
           ]
         },
